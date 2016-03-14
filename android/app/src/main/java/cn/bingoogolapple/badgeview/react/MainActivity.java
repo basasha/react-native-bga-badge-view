@@ -1,4 +1,4 @@
-package com.bgabadgeviewrn;
+package cn.bingoogolapple.badgeview.react;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
@@ -33,8 +33,8 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected List<ReactPackage> getPackages() {
-        return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
+        return Arrays.asList(
+                new MainReactPackage(), new BGABadgeViewReactPackage()
         );
     }
 }
