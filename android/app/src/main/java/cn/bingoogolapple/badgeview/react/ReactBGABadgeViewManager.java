@@ -1,5 +1,8 @@
 package cn.bingoogolapple.badgeview.react;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.SystemClock;
 import android.text.TextUtils;
@@ -68,6 +71,21 @@ public class ReactBGABadgeViewManager extends SimpleViewManager<BGABadgeView> {
         }
     }
 
+    @ReactProp(name = "drawableBadge")
+    public void setDrawableBadge(BGABadgeView view, String drawableBadge) {
+        if (TextUtils.isEmpty(drawableBadge)) {
+            view.hiddenBadge();
+        } else {
+            int resId = getMipmap(view.getContext(), drawableBadge);
+            if (resId == 0) {
+                view.hiddenBadge();
+            } else {
+                Bitmap badgeBitmap = BitmapFactory.decodeResource(view.getResources(), resId);
+                view.showDrawableBadge(badgeBitmap);
+            }
+        }
+    }
+
     @ReactProp(name = "dragable")
     public void setDragable(BGABadgeView view, boolean dragable) {
         view.getBadgeViewHelper().setDragable(dragable);
@@ -100,5 +118,9 @@ public class ReactBGABadgeViewManager extends SimpleViewManager<BGABadgeView> {
         return MapBuilder.<String, Object>builder()
                 .put(ReactBGABadgeEvent.EVENT_NAME, MapBuilder.of("registrationName", "onDismiss"))
                 .build();
+    }
+
+    public static int getMipmap(Context context, String name){
+        return context.getResources().getIdentifier(name, "mipmap", context.getPackageName());
     }
 }

@@ -27,6 +27,7 @@ BGABadgeViewAndroid.propTypes = {
   textBadge: PropTypes.string,
   badgeBgColor: PropTypes.string,
   badgeTextColor: PropTypes.string,
+  drawableBadge: PropTypes.string,
   circlePointBadge: PropTypes.bool,
   dragable: PropTypes.bool,
   onDismiss: PropTypes.func,
