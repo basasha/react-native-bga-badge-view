@@ -101,6 +101,18 @@ public class ReactBGABadgeViewManager extends SimpleViewManager<BGABadgeView> {
         view.getBadgeViewHelper().setBadgePaddingDp(badgePadding);
     }
 
+    @ReactProp(name = "badgeBorderWidthDp")
+    public void setBadgeBorderWidthDp(BGABadgeView view, int badgeBorderWidth) {
+        view.getBadgeViewHelper().setBadgeBorderWidthDp(badgeBorderWidth);
+    }
+
+    @ReactProp(name = "badgeBorderColor")
+    public void setBadgeBorderColor(BGABadgeView view, String color) {
+        if (!TextUtils.isEmpty(color)) {
+            view.getBadgeViewHelper().setBadgeBorderColorInt(Color.parseColor(color));
+        }
+    }
+
     @Override
     protected void addEventEmitters(final ThemedReactContext reactContext, final BGABadgeView view) {
         view.setDragDismissDelegage(new BGADragDismissDelegate() {
@@ -120,7 +132,7 @@ public class ReactBGABadgeViewManager extends SimpleViewManager<BGABadgeView> {
                 .build();
     }
 
-    public static int getMipmap(Context context, String name){
+    public static int getMipmap(Context context, String name) {
         return context.getResources().getIdentifier(name, "mipmap", context.getPackageName());
     }
 }

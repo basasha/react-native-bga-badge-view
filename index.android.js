@@ -56,6 +56,8 @@ class BGABadgeViewRN extends Component {
 
         <BGABadgeViewAndroid circlePointBadge={true} badgePaddingDp={6} style={styles.badge} onDismiss={() => this.onDismiss("第4个")} />
 
+        <BGABadgeViewAndroid badgeBorderWidthDp={2} badgeBorderColor="#ff0000" badgeBgColor="#00ff00" badgeTextColor="#ff0000" badgePaddingDp={7} badgeTextSizeSp={12} textBadge="9" style={styles.badge} />
+
         <Image source={{uri: 'https://avatars2.githubusercontent.com/u/8949716'}}
        style={styles.backgroundImage} resizeMode={Image.resizeMode.contain} >
         <BGABadgeViewAndroid drawableBadge="avatar_vip" style={{

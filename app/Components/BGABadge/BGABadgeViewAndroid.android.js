@@ -33,6 +33,8 @@ BGABadgeViewAndroid.propTypes = {
   onDismiss: PropTypes.func,
   badgeTextSizeSp: PropTypes.number,
   badgePaddingDp: PropTypes.number,
+  badgeBorderWidthDp: PropTypes.number,
+  badgeBorderColor: PropTypes.string,
 };
 
 var AndroidBGABadgeView = requireNativeComponent(`AndroidBGABadgeView`, BGABadgeViewAndroid);
